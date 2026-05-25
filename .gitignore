@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pycache
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment / secrets
+.env
+service_account*.json
+*_credentials.json
+*_key.json
+
+# Large genomics data files (never commit)
+*.beta
+*.pat
+*.pat.gz
+*.pat.gz.csi
+*.bam
+*.bai
+*.npy
+
+# Temporary working directories
+tmp*/
+outputs/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db

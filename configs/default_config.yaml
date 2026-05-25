@@ -1,0 +1,50 @@
+# LongReadClocks — default pipeline configuration
+# Matches parameters used in the published analysis.
+
+qc:
+  # ML-score ambiguous fraction thresholds
+  ml_ambiguous_lower: 51       # ML score lower bound (p = 0.20)
+  ml_ambiguous_upper: 204      # ML score upper bound (p = 0.80)
+  # PCA settings
+  n_cpgs_sampled: 50000        # CpGs randomly sampled for PCA
+  pca_seed: 20260426           # reproducibility seed (matches paper)
+  min_sample_obs_frac: 0.50    # min fraction of sampled CpGs covered per sample
+  min_site_obs_frac: 0.80      # min fraction of samples covering a site
+
+sorting:
+  tau: 1.053                   # LLR threshold (log(tau) = 0.052)
+  min_hits: 5                  # minimum informative CpGs per read
+
+reference:
+  min_samples_per_site: 20     # minimum observations to include a site
+  absr_min: 0.30               # minimum |Pearson R| for eligible sites
+  range_min: 0.05              # minimum predicted beta range over age span 18–90 yr
+
+inference:
+  top_k: 1000                  # top age-informative sites for Bernoulli grid search
+  age_grid_min: 0.0
+  age_grid_max: 100.0
+  age_grid_step: 0.1
+  depth_cap: 20.0              # read depth cap per site
+  eps: 1.0e-3                  # probability clipping epsilon
+
+cross_validation:
+  n_folds: 5
+  random_seed: 20260414        # matches paper
+
+# GCS path placeholders (resolved via WORKSPACE_BUCKET env variable at runtime)
+paths:
+  raw_beta_batches:
+    - "{WORKSPACE_BUCKET}/results/broad_sequel_batch"
+    - "{WORKSPACE_BUCKET}/results/broad_revio_batch"
+    - "{WORKSPACE_BUCKET}/results/bcm_revio_batch"
+    - "{WORKSPACE_BUCKET}/results/bcm_sequel_batch"
+    - "{WORKSPACE_BUCKET}/results/dsub_BCM_ONT"
+    - "{WORKSPACE_BUCKET}/results/dsub_JHU_ONT"
+    - "{WORKSPACE_BUCKET}/results/dsub_UW_revio"
+    - "{WORKSPACE_BUCKET}/results/dsub_UW_sequel2e"
+    - "{WORKSPACE_BUCKET}/results/dsub_HA_revio"
+  cell_sorted_root: "{WORKSPACE_BUCKET}/results/cell_sorted"
+  age_references_root: "{WORKSPACE_BUCKET}/results/age_references"
+  markers_root: "{WORKSPACE_BUCKET}/results/markers"
+  cpg_chrome_size: "wgbs_tools/references/hg38/CpG.chrome.size"
