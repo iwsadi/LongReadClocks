@@ -169,13 +169,7 @@ The notebook handles the full conversion chain automatically:
 
 ## Citation
 
-If you use this code, please cite:
-
-```
-Wu Y, Moqri M, Gladyshev VN.
-Measuring Cell Type Resolved Aging Through Long-Read Sequencing.
-2026.
-```
+A manuscript is currently in preparation. Citation information will be added upon publication.
 
 
 ## License
