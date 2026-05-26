@@ -113,7 +113,7 @@ All data batches follow `{site}_{platform}` lowercase naming:
 | `jhu_ont`   | Johns Hopkins (JHU) | Oxford Nanopore |
 | `uw_revio`  | Univ. Washington    | PacBio Revio    |
 | `uw_sequel` | Univ. Washington    | PacBio Sequel2e |
-| `ha_revio`  | HealthAGE           | PacBio Revio    |
+| `ha_revio`  | HudsonAlpha (HA)    | PacBio Revio    |
 
 
 ## GCS folder structure
